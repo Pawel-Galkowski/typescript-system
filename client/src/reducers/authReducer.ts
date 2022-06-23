@@ -11,7 +11,7 @@ import {
   ACCOUNT_CONFIRMED,
   RECOVERY_SEND,
 } from '../actions/types';
-import { Action, InitialState } from './interfaces';
+import { Action, InitialState } from '../interfaces/reducers';
 
 const initialState: InitialState = {
   isAuthenticated: false,

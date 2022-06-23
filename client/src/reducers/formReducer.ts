@@ -16,7 +16,7 @@ import {
   GET_RESPONSE,
   REMOVE_RESPONSE,
 } from '../actions/types';
-import { Action, InitialState } from './interfaces';
+import { Action, InitialState } from '../interfaces/reducers';
 
 const initialState: InitialState = {
   forms: [],

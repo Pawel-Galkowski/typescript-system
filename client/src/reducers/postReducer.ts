@@ -8,7 +8,7 @@ import {
   ADD_COMMENT,
   REMOVE_COMMENT,
 } from '../actions/types';
-import { Action, InitialState } from './interfaces';
+import { Action, InitialState } from '../interfaces/reducers';
 
 const initialState: InitialState = {
   posts: [],

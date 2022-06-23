@@ -15,7 +15,7 @@ import {
   POST_FILE,
   ALL_USERS,
 } from '../actions/types';
-import { Action, InitialState } from './interfaces';
+import { Action, InitialState } from '../interfaces/reducers';
 
 const initialState: InitialState = {
   profile: {},

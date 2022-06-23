@@ -1,32 +1,28 @@
 {
-  "name": "system",
-  "version": "0.0.0",
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "type": "module",
   "scripts": {
-    "build": "./node_modules/.bin/ts-node build.ts",
+    "build": "webpack --mode=production --node-env=production",
+    "heroku-postbuild": "ng build --prod",
     "lint": "eslint . --ext .ts",
-    "start": "node -r module-alias/register ./dist --env=production",
+    "start": "nodemon start",
     "start:dev": "nodemon",
     "test": "nodemon --config ./spec/nodemon.json",
-    "test:no-reloading": "./node_modules/.bin/ts-node --files -r tsconfig-paths/register ./spec"
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
   },
   "nodemonConfig": {
     "watch": [
       "src"
     ],
-    "ext": "ts, html",
+    "ext": "ts",
     "ignore": [
       "src/public"
-    ],
-    "exec": "./node_modules/.bin/ts-node --files -r tsconfig-paths/register ./src"
-  },
-  "_moduleAliases": {
-    "@services": "dist/services",
-    "@repos": "dist/repos",
-    "@entities": "dist/entities",
-    "@shared": "dist/shared",
-    "@server": "dist/server",
-    "@routes": "dist/routes",
-    "@util": "dist/util"
+    ]
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -71,12 +67,17 @@
     "express-async-errors": "^3.1.1",
     "helmet": "^5.1.0",
     "http-status-codes": "^2.2.0",
+    "jasmine": "^4.2.1",
     "jet-logger": "^1.1.5",
     "jsonfile": "^6.1.0",
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
-    "randomstring": "^1.2.2"
+    "nodemon": "^2.0.16",
+    "randomstring": "^1.2.2",
+    "request": "^2.79.0",
+    "url": "^0.11.0",
+    "util": "^0.12.4"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -94,14 +95,18 @@
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "@webpack-cli/generators": "^2.5.0",
     "eslint": "^8.16.0",
     "find": "^0.3.0",
     "fs-extra": "^10.1.0",
-    "jasmine": "^4.1.0",
-    "nodemon": "^2.0.16",
     "supertest": "^6.2.3",
+    "ts-loader": "^9.3.0",
     "ts-node": "^10.8.0",
     "tsconfig-paths": "^4.0.0",
-    "typescript": "^4.7.2"
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.1",
+    "workbox-webpack-plugin": "^6.5.3"
   }
 }

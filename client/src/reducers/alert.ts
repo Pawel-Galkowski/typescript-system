@@ -1,5 +1,5 @@
 import { SET_ALERT, REMOVE_ALERT } from '../actions/types';
-import { Action } from './interfaces';
+import { Action } from '../interfaces/reducers';
 
 const alert = (state = [], action: Action) => {
   const { type, payload } = action;

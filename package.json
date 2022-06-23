@@ -1,0 +1,16 @@
+{
+  "name": "system",
+  "version": "0.0.0",
+  "scripts": {
+    "client": "cd client && npm run start",
+    "server": "cd server && npm run start",
+    "start": "concurrently \"npm run client\" \"npm run server\""
+  },
+  "eslintIgnore": [
+    "src/public/",
+    "build.ts"
+  ],
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  }
+}

@@ -15,6 +15,7 @@ import {
   RECOVERY_SEND,
 } from './types';
 import customDispatch from './customDispatch';
+import { Register } from '../interfaces/auth'
 
 export const loadUser = () => async (dispatch: Dispatch) => {
   if (localStorage.token) {
@@ -35,7 +36,7 @@ export const loadUser = () => async (dispatch: Dispatch) => {
 };
 
 // register user
-export const register = ({ name, email, password }: { name: string, email: string, password: string }) => async (dispatch: Dispatch) => {
+export const register = (register: Register) => async (dispatch: Dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -43,7 +44,7 @@ export const register = ({ name, email, password }: { name: string, email: strin
   };
 
   try {
-    const body = JSON.stringify({ name, email, password });
+    const body = JSON.stringify(register);
     const res = await axios.post('/api/users', body, config);
 
     dispatch({

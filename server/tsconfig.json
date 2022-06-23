@@ -1,38 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es6",                         
-    "module": "commonjs",                     
-    "outDir": "dist",                        
-    "strict": true,                           
-    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "@repos/*": [
-        "src/repos/*"
-      ],
-      "@models/*": [
-        "src/models/*"
-      ],
-      "@shared/*": [
-        "src/shared/*"
-      ],
-      "@server": [
-        "src/server"
-      ],
-      "@services/*": [
-        "src/services/*"
-      ],
-      "@routes/*": [
-        "src/routes/*"
-      ],
-      "@util/*": [
-        "src/util/*"
-      ]
-    },
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "types": ["node", "jasmine", "express"]
   },
+  "files": ["src/index.ts"],
   "include": [
     "src/**/*.ts",
     "spec/**/*.ts"
