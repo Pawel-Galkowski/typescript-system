@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const DashboardActions = ({ profile }) => {
+const DashboardActions = ({ profile }: {profile: any}) => {
   return (
     <div className="dash-buttons">
       {profile !== null ? (

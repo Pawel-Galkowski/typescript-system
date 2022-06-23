@@ -2,17 +2,17 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import { deleteEducation } from '../../actions/profile';
+import { deleteEducation, deleteAccount } from '../../actions/profile';
 import { Link } from 'react-router-dom';
 
-const Education = ({ education, deleteEducation }) => {
-  const submitOperation = (id) => {
+const Education = ({ education, deleteEducation }: {education: any, deleteEducation: any}) => {
+  const submitOperation = (id: number) => {
     if (window.confirm('Do you really want to remove that experience?')) {
       deleteEducation(id);
     }
   };
 
-  const educations = education.map((edu) => (
+  const educations = education.map((edu: any) => (
     <tr key={edu._id}>
       <td>{edu.school}</td>
       <td>{edu.degree}</td>
@@ -22,7 +22,7 @@ const Education = ({ education, deleteEducation }) => {
         {edu.to !== null ? <Moment format="YYYY/MM/DD">{edu.to}</Moment> : 'Now'}
       </td>
       <td>
-        <Link to={{ pathname: `/edit-education/${edu._id}`, query: `${edu._id}` }} className="btn btn-light">
+        <Link to={{ pathname: `/edit-education/${edu._id}` }} className="btn btn-light">
           <i className="far fa-edit fa-2x"></i>
         </Link>
       </td>
@@ -32,7 +32,7 @@ const Education = ({ education, deleteEducation }) => {
     </tr>
   ));
 
-  const educations2 = education.map((edu) => (
+  const educations2 = education.map((edu: any) => (
     <Fragment key={edu._id}>
       <tr>
         <th>School</th>
@@ -45,7 +45,7 @@ const Education = ({ education, deleteEducation }) => {
       <tr>
         <th>Edit</th>
         <td>
-          <Link to={{ pathname: `/edit-education/${edu._id}`, query: `${edu._id}` }} className="btn btn-light">
+          <Link to={{ pathname: `/edit-education/${edu._id}` }} className="btn btn-light">
             <i className="far fa-edit fa-2x"></i>
           </Link>
         </td>
@@ -68,7 +68,7 @@ const Education = ({ education, deleteEducation }) => {
             <th>Degree</th>
             <th className="hide-md">Field Of Study</th>
             <th>Years</th>
-            <th colSpan="2"></th>
+            <th colSpan={2}></th>
           </tr>
         </thead>
         <tbody>{educations}</tbody>

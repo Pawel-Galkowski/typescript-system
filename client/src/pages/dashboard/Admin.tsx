@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Spinner from '../layout/Spinner';
+import Spinner from '../../components/Spinner';
 import { getProfiles, getUsers, getAllusers } from '../../actions/profile';
 import { getPosts } from '../../actions/post';
 import AdminPosts from '../admin/LastPosts';
@@ -10,7 +10,7 @@ import AddUsers from '../admin/AddUsers';
 import AdminUsers from '../admin/LastUsers';
 import AllUsers from '../admin/AllUsers';
 
-const propComparator = (propName) => (a, b) => a[propName] === b[propName] ? 0 : a[propName] < b[propName] ? -1 : 1;
+const propComparator = (propName: any) => (a: any, b: any) => a[propName] === b[propName] ? 0 : a[propName] < b[propName] ? -1 : 1;
 
 const Admin = ({
   profile: { profiles, profile, users2, allUsers, loading },
@@ -19,6 +19,13 @@ const Admin = ({
   getProfiles,
   getUsers,
   getAllusers,
+}: {
+  profile: any,
+  getPosts: any,
+  post: any,
+  getProfiles: any,
+  getUsers: any,
+  getAllusers: any,
 }) => {
   useEffect(() => {
     getPosts();
@@ -41,7 +48,7 @@ const Admin = ({
                   <Spinner />
                 ) : (
                   profiles
-                    .map((profile) => <AdminProfiles key={profile._id} profile={profile} />)
+                    .map((profile: any) => <AdminProfiles key={profile._id} profile={profile} />)
                     .sort(propComparator('date'))
                     .slice(0, 5)
                 )}
@@ -54,7 +61,7 @@ const Admin = ({
                   <Spinner />
                 ) : (
                   posts
-                    .map((post) => <AdminPosts key={post._id} post={post} />)
+                    .map((post: any) => <AdminPosts key={post._id} post={post} />)
                     .sort(propComparator('date'))
                     .slice(0, 5)
                 )}
@@ -70,7 +77,7 @@ const Admin = ({
                 ) : (
                   <Fragment>
                     {users2
-                      .map((usrs) => <AdminUsers key={usrs._id} usrs={usrs} />)
+                      .map((usrs: any) => <AdminUsers key={usrs._id} usrs={usrs} />)
                       .sort(propComparator('date'))
                       .slice(0, 5)}
                   </Fragment>
@@ -93,7 +100,7 @@ const Admin = ({
                 ) : (
                   <Fragment>
                     {allUsers
-                      .map((usrs) => <AllUsers key={usrs._id} usrs={usrs} />)
+                      .map((usrs: any) => <AllUsers key={usrs._id} usrs={usrs} />)
                       .sort(propComparator('date'))
                       .slice(0, 5)}
                   </Fragment>
@@ -122,7 +129,7 @@ Admin.propTypes = {
   getUsers: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: any) => ({
   profile: state.profile,
   post: state.post,
 });

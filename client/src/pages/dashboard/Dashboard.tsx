@@ -1,13 +1,16 @@
 import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Spinner from '../layout/Spinner';
+import Spinner from '../../components/Spinner';
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 import { Link } from 'react-router-dom';
 import Education from './Education';
 import Experience from './Experience';
 
-const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: { profile, loading } }) => {
+const Dashboard = (
+  { getCurrentProfile, deleteAccount, auth: { user }, profile: { profile, loading } }:
+  { getCurrentProfile: any, deleteAccount: any, auth: any, profile: any }
+  ) => {
   useEffect(() => {
     getCurrentProfile();
   }, [getCurrentProfile]);
@@ -65,7 +68,7 @@ Dashboard.propTypes = {
   profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: any) => ({
   auth: state.auth,
   profile: state.profile,
 });
